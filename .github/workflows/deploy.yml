@@ -1,9 +1,7 @@
-name: CI
+name: Deploy
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 concurrency:
@@ -34,7 +32,6 @@ jobs:
     name: Deploy to GitHub Pages
     needs: quality
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
