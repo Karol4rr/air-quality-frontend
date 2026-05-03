@@ -80,10 +80,7 @@ export const AirQualityPage = () => {
 			</div>
 
 			<LoaderPageOverlay active={isLoading} message="Ładowanie danych…" />
-			{isError && (
-				<AirQualityFetchErrorAlert error={error} onRetry={handleRefetch} isRetrying={isRefetching} />
-			)}
-
+			{isError && <AirQualityFetchErrorAlert error={error} onRetry={handleRefetch} isRetrying={isRefetching} />}
 			{data && (
 				<>
 					<section
