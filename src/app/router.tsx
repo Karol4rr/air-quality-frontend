@@ -6,9 +6,11 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 const layoutRoutes = [...airQualityRoutes, ...cityNotesRoutes];
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined;
+
 export const AppRouter = () => {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={routerBasename}>
 			<Routes>
 				<Route element={<AppLayout />}>
 					<Route element={<RouteSuspenseLayout />}>

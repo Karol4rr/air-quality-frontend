@@ -8,11 +8,12 @@ import { defineConfig } from 'vite';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
 	plugins: [react(), tailwindcss(), svgr()],
+	base: command === 'build' ? '/air-quality-frontend/' : '/',
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
 		},
 	},
-});
+}));
