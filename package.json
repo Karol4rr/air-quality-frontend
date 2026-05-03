@@ -57,6 +57,9 @@
 		"vitest": "^4.1.5"
 	},
 	"lint-staged": {
-		"*.{ts,tsx,js,jsx,mjs,cjs,json,css,md,html}": "prettier --check"
+		"src/**/*.{js,jsx,ts,tsx}": [
+			"npm run format",
+			"npm run lint"
+		]
 	}
 }
