@@ -1,6 +1,7 @@
 import type { CityStatRow, CityStatsPageResponse, CityStatsQueryParams } from '@/features/airQuality/types';
 import { filterCityStatsByName, sortCityStats } from '@/features/airQuality/utils/sortFilterStats';
 import { getFixtureCityStats } from '@/mocks/cityStats';
+import { countries } from '@/mocks/countries';
 import { mockDelay } from '@/shared/api/mockDelay';
 
 export const paginateCityStats = (rows: CityStatRow[], params: CityStatsQueryParams): CityStatsPageResponse => {
@@ -31,8 +32,9 @@ export const fetchCityStats = async (
 ): Promise<CityStatsPageResponse> => {
 	await mockDelay();
 	const data = getFixtureCityStats(countryId, year);
+	const countryName = countries.find((c) => c.id === countryId)?.name;
 	if (!data) {
-		throw new Error(`Brak danych dla kraju ${countryId} i roku ${year}`);
+		throw new Error(`Brak danych dla kraju ${countryName} i roku ${year}`);
 	}
 	return paginateCityStats(data, params);
 };

@@ -21,7 +21,7 @@ export const AppProviders = ({ children }: { children: ReactNode }) => {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<ToastProvider>
-				<TooltipProvider delayDuration={300}>{children}</TooltipProvider>
+				<TooltipProvider delayDuration={100}>{children}</TooltipProvider>
 			</ToastProvider>
 			{import.meta.env.DEV ? <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-left" /> : null}
 		</QueryClientProvider>

@@ -12,6 +12,8 @@ import { Bar } from 'react-chartjs-2';
 
 ensureChartJsRegistered();
 
+const chartAreaClass = 'h-[320px] w-full min-h-[280px] min-w-0';
+
 export const PollutantBarChart = ({ rows }: PollutantBarChartProps) => {
 	const chartData = useMemo(() => {
 		return {
@@ -32,16 +34,16 @@ export const PollutantBarChart = ({ rows }: PollutantBarChartProps) => {
 	}
 
 	return (
-		<div className="h-[320px] w-full min-h-[280px] min-w-0">
+		<div className={chartAreaClass}>
 			<Bar data={chartData} options={CHART_OPTIONS} />
 		</div>
 	);
 };
 
-const NoDataMessage = () => {
-	return (
-		<p className="rounded-md border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500">
+const NoDataMessage = () => (
+	<div className={chartAreaClass}>
+		<div className="flex h-full items-center justify-center text-sm text-slate-500">
 			Brak danych do wykresu dla wybranych filtrów.
-		</p>
-	);
-};
+		</div>
+	</div>
+);
