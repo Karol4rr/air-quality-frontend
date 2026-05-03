@@ -33,7 +33,7 @@ export const NoteEditForm = ({ note, onClose, isSaving, onSave }: NoteEditFormPr
 			</label>
 			<Textarea id={bodyFieldId} value={body} onChange={(e) => setBody(e.target.value)} required />
 			<NoteTimestamps createdAt={note.createdAt} updatedAt={note.updatedAt} variant="compact" />
-			<NoteFormActionBar onCancel={onClose} isSaving={isSaving} cancelVariant="ghost" saveVariant="primary" />
+			<NoteFormActionBar onCancel={onClose} isSaving={isSaving} cancelVariant="primary" saveVariant="secondary" />
 		</form>
 	);
 };
