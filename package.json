@@ -1,7 +1,7 @@
 {
-	"name": "ing",
+	"name": "air-quality-frontend",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -11,7 +11,8 @@
 		"format:check": "prettier --check .",
 		"preview": "vite preview",
 		"test": "vitest",
-		"test:run": "vitest run"
+		"test:run": "vitest run",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@radix-ui/react-dialog": "^1.1.15",
@@ -44,7 +45,9 @@
 		"eslint-plugin-react-hooks": "^7.1.1",
 		"eslint-plugin-react-refresh": "^0.5.2",
 		"globals": "^17.5.0",
+		"husky": "^9.1.7",
 		"jsdom": "^29.1.0",
+		"lint-staged": "^16.4.0",
 		"prettier": "^3.8.3",
 		"tailwindcss": "^4.2.4",
 		"typescript": "~6.0.2",
@@ -52,5 +55,11 @@
 		"vite": "^8.0.10",
 		"vite-plugin-svgr": "^5.2.0",
 		"vitest": "^4.1.5"
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx}": [
+			"npm run format",
+			"npm run lint"
+		]
 	}
 }
